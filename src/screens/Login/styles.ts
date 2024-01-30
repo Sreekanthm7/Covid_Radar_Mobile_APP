@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
 
   createAccountContainer: {
     display: 'flex',
-    alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
     height: '80%',
@@ -19,17 +18,20 @@ export const styles = StyleSheet.create({
     paddingVertical: 16,
     paddingRight: 86,
     paddingLeft: 16,
-    width: '80%',
-    marginTop: 40,
+    width: '100%',
+    marginTop: 30,
   },
   loginTitle: {
     fontSize: 40,
     color: '#1C1C1C',
     fontWeight: '600',
+    marginLeft: 25,
   },
   loginText: {
     color: '#101010',
     fontSize: 16,
+    marginLeft: 25,
+    marginBottom: 60,
   },
   btnContainer: {
     display: 'flex',

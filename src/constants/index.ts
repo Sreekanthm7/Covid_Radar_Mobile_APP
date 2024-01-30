@@ -4,3 +4,6 @@ export const DefaultScreenOption: NativeStackNavigationOptions = {
   headerShown: false,
   animation: 'default',
 };
+
+
+export const ASYNC_STORAGE_AUTH_KEY = 'covidRadar/auth';
