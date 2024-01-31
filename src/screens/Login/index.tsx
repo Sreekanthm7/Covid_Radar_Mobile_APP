@@ -7,7 +7,7 @@ import {useState} from 'react';
 import {signInWithEmailAndPassword} from 'firebase/auth';
 import {auth} from '../../services/config';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ASYNC_STORAGE_AUTH_KEY } from '../../constants';
+import {ASYNC_STORAGE_AUTH_KEY} from '../../constants';
 
 export const Login = () => {
   const navigation = useNavigation<RootStackNavigationProps>();
@@ -19,7 +19,7 @@ export const Login = () => {
       await signInWithEmailAndPassword(auth, email, password).then(
         userCredential => {
           const user = userCredential.user;
-          AsyncStorage.setItem(ASYNC_STORAGE_AUTH_KEY, JSON.stringify(user));
+          AsyncStorage.setItem('accessTocken', JSON.stringify(user))
           console.log(user, 'data');
           navigation.navigate('HOME');
         },
