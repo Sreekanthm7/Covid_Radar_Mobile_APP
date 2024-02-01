@@ -1,29 +1,38 @@
-import {Alert, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {Common} from '../../assets/svg';
 import {styles} from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {RootStackNavigationProps} from '../../types/navigation';
 import {useState} from 'react';
 import {signInWithEmailAndPassword} from 'firebase/auth';
-import {auth} from '../../services/config';
+import {authenticate} from '../../services/config';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {ASYNC_STORAGE_AUTH_KEY} from '../../constants';
+import {useRecoilState} from 'recoil';
+import {authState} from '../../atom/auth';
 
 export const Login = () => {
   const navigation = useNavigation<RootStackNavigationProps>();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [auth, setAuth] = useRecoilState(authState);
 
   const handleLogin = async () => {
     try {
-      await signInWithEmailAndPassword(auth, email, password).then(
-        userCredential => {
-          const user = userCredential.user;
-          AsyncStorage.setItem('accessTocken', JSON.stringify(user))
-          console.log(user, 'data');
-          navigation.navigate('HOME');
-        },
+      const userCredential = await signInWithEmailAndPassword(
+        authenticate,
+        email,
+        password,
       );
+
+      await AsyncStorage.setItem(
+        'accessTocken',
+        JSON.stringify(userCredential.user),
+      );
+      setAuth(userCredential.user);
+      auth;
+      console.log(userCredential.user, 'response');
+
+      navigation.navigate('NAVBAR');
     } catch (error) {
       console.log(error);
     }
