@@ -7,11 +7,15 @@
 
 import React from 'react';
 import {Router} from './src/router';
+import {RecoilRoot} from 'recoil';
+import AuthContainer from './src/components/AuthContainer';
 
 export default function App(): React.JSX.Element {
   return (
-    <>
-      <Router />
-    </>
+    <RecoilRoot>
+      <AuthContainer>
+        <Router />
+      </AuthContainer>
+    </RecoilRoot>
   );
 }
