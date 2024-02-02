@@ -9,12 +9,12 @@ import {Profile} from '../screens/Profile';
 import {BottomTab} from './BottomNavbar';
 import {useRecoilState} from 'recoil';
 import {authState} from '../atom/auth';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {DistrictListPage} from '../screens/DistrictListPage';
+import { CovidDataList } from '../screens/CovidDataList';
 
 export const Router = () => {
   const Stack = createNativeStackNavigator<RootStackParamList>();
   const [auth] = useRecoilState(authState);
-
 
   const renderRoutes = () => {
     if (auth) {
@@ -23,6 +23,14 @@ export const Router = () => {
           <Stack.Screen name="NAVBAR" component={BottomTab} />
           <Stack.Screen name="HOME" component={Home} />
           <Stack.Screen name="PROFILE" component={Profile} />
+          <Stack.Screen
+            name="DISTRICT_LIST_PAGE"
+            component={DistrictListPage}
+          />
+              <Stack.Screen
+            name="COVID_DATA_LIST"
+            component={CovidDataList}
+          />
         </>
       );
     } else {

@@ -1,10 +1,14 @@
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import {styles} from './styles';
 import {Common} from '../../assets/svg';
+import {RootStackNavigationProps} from '../../types/navigation';
+import {useNavigation} from '@react-navigation/native';
 
 export const Home = () => {
+  const navigation = useNavigation<RootStackNavigationProps>();
+
   return (
-    <View style={{backgroundColor: '#FFF', height: '100%'}}>
+    <ScrollView style={{backgroundColor: '#FFF'}}>
       <View style={styles.titleContainer}>
         <View style={{padding: 18}}>
           <Text style={styles.heading}>Covid Radar</Text>
@@ -46,14 +50,18 @@ export const Home = () => {
             <Text style={styles.preventionText}>Wash your hands properly</Text>
           </View>
         </View>
-        <TouchableOpacity style={styles.viewUpdatesContainer}>
+        <TouchableOpacity
+          style={styles.viewUpdatesContainer}
+          onPress={() => navigation.navigate('DISTRICT_LIST_PAGE')}>
           <Image
             source={require('../../assets/png/map.png')}
             style={styles.mapIcon}
           />
-          <Text style={styles.viewUpdatesText}>Tap to view current updates</Text>
+          <Text style={styles.viewUpdatesText}>
+            Tap to view current updates
+          </Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   );
 };

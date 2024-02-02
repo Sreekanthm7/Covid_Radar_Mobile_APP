@@ -2,7 +2,6 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   titleContainer: {
-    height: '38%',
     width: '100%',
     backgroundColor: '#172554',
     borderBottomLeftRadius: 100,
@@ -35,6 +34,7 @@ export const styles = StyleSheet.create({
   callBtnContainer: {
     display: 'flex',
     alignItems: 'center',
+    marginBottom: 20
   },
   callBtnText: {
     color: '#FFF',
@@ -80,7 +80,7 @@ export const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     gap: 10,
-    marginTop: 30,
+    marginTop: 50,
     backgroundColor: '#e7e5e4',
     paddingVertical: 15,
     borderWidth: 2,

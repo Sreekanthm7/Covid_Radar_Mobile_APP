@@ -1,5 +1,4 @@
-import {Image, Text, TouchableOpacity, View} from 'react-native';
-import {Common} from '../../assets/svg';
+import {Image, View} from 'react-native';
 import {styles} from './style';
 
 export const FullScreenBrand = () => {

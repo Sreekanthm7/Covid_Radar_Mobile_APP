@@ -1,8 +1,6 @@
 import Config from 'react-native-config';
 import {initializeApp} from 'firebase/app';
-import {
-  getAuth,
-} from 'firebase/auth';
+import {getAuth} from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: Config.API_KEY,

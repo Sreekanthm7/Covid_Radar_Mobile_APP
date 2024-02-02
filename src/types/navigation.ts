@@ -1,4 +1,5 @@
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {District} from './districtData';
 
 export type RootStackParamList = {
   HOME: undefined;
@@ -6,6 +7,8 @@ export type RootStackParamList = {
   LOGIN: undefined;
   PROFILE: undefined;
   NAVBAR: undefined;
+  DISTRICT_LIST_PAGE: undefined;
+  COVID_DATA_LIST: {value: District; key: string};
 };
 
 export type HomeTabParamList = {
